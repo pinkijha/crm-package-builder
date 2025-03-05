@@ -11,8 +11,8 @@ const Header = () => {
   // Configuration: Define which items appear on each page
   const headerConfig = {
     "/profile": { search: false, notification: false, profile: true },
-    "/query": { search: true, notification: false, profile: true },
-    "/services": { search: true, notification: true, profile: true },
+    "/query": { search: true, notification: true, profile: true },
+    "/services": { search: true, notification: false, profile: true },
   };
 
   // Get current config based on route, default to showing all

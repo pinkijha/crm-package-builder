@@ -3,9 +3,9 @@ import Sidebar from '../layout/sidebar/Sidebar';
 import Header from '../layout/header/Header';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import Dashboard from '../component/Dashboard';
-import Query from '../component/Query';
-import Services from '../component/Services';
-import MyProfile from '../component/MyProfile';
+import Query from '../component/query/Query';
+import Services from '../component/services/Services';
+import MyProfile from '../component/profile/MyProfile';
 
 const PackageBuilder = () => <h1>Package Builder</h1>
 const Clients = () => <h1>Clients</h1>

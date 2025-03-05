@@ -1,25 +1,18 @@
 import React, { useState } from "react";
 import { AiOutlineArrowLeft } from "react-icons/ai";
+import userProfile from "../../assets/user-profile.png";
+import EditProfile from "./EditProfile";
 
 const MyProfile = () => {
-  const [profileImage, setProfileImage] = useState("https://via.placeholder.com/120");
+  const [clickEdit, setClickEdit] = useState(false);
 
-  // Function to handle image upload
-  const handleImageUpload = (event) => {
-    const file = event.target.files[0];
-    if (file) {
-      const imageUrl = URL.createObjectURL(file);
-      setProfileImage(imageUrl);
-    }
-  };
-
-  // Function to trigger file input when clicking the profile image
-  const handleImageClick = () => {
-    document.getElementById("fileInput").click();
-  };
-
+ 
   return (
-    <div className="">
+    <>
+    {clickEdit ? (
+      <EditProfile  onClose={() => setClickEdit(false)} />
+    ) : 
+    (<div className="">
       {/* Back Button */}
       <div className="flex bg-white p-4 items-center space-x-2 mb-4 rounded-lg shadow-sm">
         <AiOutlineArrowLeft className="text-blue-500 text-xl cursor-pointer" />
@@ -27,8 +20,7 @@ const MyProfile = () => {
       </div>
 
       {/* Profile Details */}
-      <div className="flex flex-col md:flex-row items-center bg-white rounded-lg shadow-sm p-6 md:items-start justify-between">
-        
+      <div className="flex flex-col md:flex-row items-center bg-white rounded-lg shadow-sm p-6  justify-between">
         {/* Left Side - User Info */}
         <div className="w-full md:w-2/3 space-y-4">
           <div className="flex items-center">
@@ -70,40 +62,29 @@ const MyProfile = () => {
         </div>
 
         {/* Right Side - Profile Picture */}
-        <div className="flex flex-col items-center">
-          {/* Clickable Profile Image */}
-          <div className="relative cursor-pointer" onClick={handleImageClick}>
-            <img
-              src={profileImage}
-              alt="Profile"
-              className="w-32 h-32 rounded-full border-4 border-gray-300 object-cover"
-            />
-          </div>
-
-          <p className="text-2xl font-bold mt-2">Genny</p>
-
-          {/* Hidden File Input */}
-          <input
-            id="fileInput"
-            type="file"
-            accept="image/*"
-            className="hidden"
-            onChange={handleImageUpload}
+        <div className="flex flex-col items-center mr-12">
+          <img
+            src={userProfile}
+            alt="Profile"
+            className="w-40 h-40 rounded-full border-4 border-gray-300"
           />
+          <p className="text-lg font-semibold mt-2">Genny</p>
         </div>
-
       </div>
 
       {/* Buttons */}
       <div className="flex justify-end space-x-4 mt-6">
-        <button className="bg-blue-500 text-white px-4 py-2 rounded-md hover:bg-blue-600">
+        <button onClick={()=> setClickEdit(true)}
+        className="bg-blue-500 text-white px-4 py-2 rounded-md hover:bg-blue-600">
           Edit Profile
         </button>
         <button className="bg-gray-300 text-black px-4 py-2 rounded-md hover:bg-gray-400">
           Cancel
         </button>
       </div>
-    </div>
+    </div>)
+  }
+    </>
   );
 };
 

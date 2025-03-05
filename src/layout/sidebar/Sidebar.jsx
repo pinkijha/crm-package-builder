@@ -42,9 +42,11 @@ const Sidebar = () => {
                     <NavLink 
                         key={item.id} 
                         to={item.path} 
-                        className="flex cursor-pointer hover:bg-[#C4E0FF] hover:shadow-xl space-x-4 items-center 
-                                   text-[#2196F3] text-[18px] shadow-2xs bg-[#F2F3F5] rounded-lg px-3 py-2 font-semibold border 
-                                   border-[#BDBDBD]">
+                        className={({ isActive }) => 
+                            `flex cursor-pointer space-x-4 items-center text-[18px] shadow-2xs rounded-lg px-3 py-2 font-semibold border 
+                            border-[#BDBDBD] transition-all duration-300 ease-in-out
+                            ${isActive ? "bg-[#C4E0FF] text-[#2196F3] shadow-xl" : "bg-[#F2F3F5] text-[#2196F3] hover:bg-[#C4E0FF]"}`
+                        }>
                         <span className='text-2xl'>{item.icon}</span>
                         <p>{item.name}</p>
                     </NavLink>

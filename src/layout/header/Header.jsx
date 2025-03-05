@@ -30,12 +30,12 @@ const Header = () => {
           <span className="absolute -top-1 -right-1 flex items-center justify-center w-5 h-5 bg-red-500 text-white text-xs font-bold rounded-full">
             1
           </span>
-          <CiBellOn className="text-4xl text-gray-700" />
+          <CiBellOn className="text-3xl text-gray-700" />
         </div>
 
         {/* User Profile Dropdown */}
         <div className="flex items-center space-x-2 cursor-pointer hover:bg-gray-100 p-2 hover:rounded-lg">
-          <LuCircleUserRound className="text-4xl text-gray-700" />
+          <LuCircleUserRound className="text-3xl text-gray-700" />
           <select
             className="outline-none p-2 text-lg bg-transparent cursor-pointer"
             onChange={(e) => {

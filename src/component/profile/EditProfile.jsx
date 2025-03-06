@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { AiOutlineArrowLeft } from "react-icons/ai";
 import userProfile from "../../assets/user-profile.png";
+import { MdOutlineFileUpload } from "react-icons/md";
 
 const EditProfile = ({ onClose }) => {
   const [image, setImage] = useState(null);
@@ -93,8 +94,8 @@ const EditProfile = ({ onClose }) => {
               className="w-full h-full object-cover"
             />
           </div>
-          <label className="mt-3 hover:bg-blue-600 px-4 py-2 bg-blue-500 text-white rounded cursor-pointer">
-            Upload
+          <label className="mt-3 flex items-center hover:bg-blue-600 space-x-2 px-8 py-2 bg-blue-500 text-white rounded cursor-pointer">
+            <span className="text-2xl"><MdOutlineFileUpload /></span>Upload
             <input type="file" accept="image/*" onChange={handleImageUpload} className="hidden" />
           </label>
         </div>
@@ -102,7 +103,7 @@ const EditProfile = ({ onClose }) => {
 
       {/* Confirm & Save Button */}
       <div className="mt-6 flex justify-end p-4 rounded-lg">
-        <button className="px-6 py-2 hover:bg-blue-600 bg-blue-500 text-white rounded">
+        <button className="cursor-pointer px-6 py-2 hover:bg-blue-600 bg-blue-500 text-white rounded">
           Confirm & Save
         </button>
       </div>

@@ -4,11 +4,13 @@ import { FiDownload } from "react-icons/fi";
 import { FaEdit } from "react-icons/fa";
 import AddQuery from "./AddQuery";
 import EditQuery from "./EditQuery";
+import SearchQuery from "./SearchQuery";
 
 const Query = () => {
   const [addQuery, setAddQuery] = useState(false);
   const [editQuery, setEditQuery] = useState(false);
   const [selectedItem, setSelectedItem] = useState(null);
+  const [searchQuery , setSearchQuery] = useState(false);
 
   const cardItem = [
     { id: 1, count: 80, name: "New Leads", color: "#FFB400" },
@@ -81,12 +83,18 @@ const Query = () => {
             <FaPlus />
             Add Query
           </button>
+          {/* AddQuery Modal */}
           <AddQuery isOpen={addQuery} onClose={() => setAddQuery(false)} />
         </div>
-        <button className="bg-[#23C55F] text-white text-lg cursor-pointer px-6 py-2 flex items-center gap-2 rounded-lg">
+       <div>
+       <button onClick={() => setSearchQuery(true) }
+       className="bg-[#23C55F] text-white text-lg cursor-pointer px-6 py-2 flex items-center gap-2 rounded-lg">
           <FaSearch />
           Search
         </button>
+        {/* Search Modal */}
+        <SearchQuery isOpen={searchQuery} onClose={()=> setSearchQuery(false)}  />
+       </div>
       </div>
 
       {/* Cards Section */}

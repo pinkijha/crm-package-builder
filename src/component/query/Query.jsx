@@ -1,9 +1,15 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { FaPlus, FaSearch } from "react-icons/fa";
 import { FiDownload } from "react-icons/fi";
 import { FaEdit } from "react-icons/fa";
+import AddQuery from './AddQuery';
+import EditQuery from './AddQuery';
 
 const Query = () => {
+  const [addQuery, setAddQuery] = useState(false);
+  const [editQuery, setEditQuery] = useState(null);
+  const [searchQuery, setSearchQuery] = useState(false);
+
   const cardItem = [
     {id:1, count:80, name: 'New Leads', color:'#FFB400'},
     {id:1, count:0, name: 'Active Leads', color:'#4FA5F0'},
@@ -33,8 +39,12 @@ const Query = () => {
     <div>
       {/* Header Buttons section */}
       <div className='flex space-x-2 mb-6'>
-        <button className='bg-[#D63B05] text-white text-lg cursor-pointer py-2 px-6 flex items-center gap-2 rounded-lg'>
+      <div>
+      <button onClick={()=> setAddQuery(true)}
+        className='bg-[#D63B05] text-white text-lg cursor-pointer py-2 px-6 flex items-center gap-2 rounded-lg'>
           <FaPlus/>Add Query</button>
+          <AddQuery isOpen={addQuery} onClose={()=> setAddQuery(false)} />
+      </div>
         <button className='bg-[#23C55F] text-white text-lg cursor-pointer px-6 py-2 flex items-center gap-2 rounded-lg'>
         <FaSearch />Search</button>
       </div>
@@ -78,7 +88,8 @@ const Query = () => {
           <td className={`border-b-2 border-black font-bold px-6 py-6 ${priorityColor[tableItem.priority.toLowerCase()] || "text-gray-500"}`}>{tableItem.priority}</td>
           <td className='border-b-2 px-6 py-6'>{tableItem.AsignedTo}</td>
           <td className='border-b-2 space-x-3 px-6 py-6'>
-            <button className='cursor-pointer text-lg'>
+            <button onClick={()=> setEditQuery(tableItem)}
+            className='cursor-pointer text-lg'>
               <FaEdit />
             </button>
             <button className='cursor-pointer text-lg'>

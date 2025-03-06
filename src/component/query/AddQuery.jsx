@@ -6,7 +6,7 @@ const AddQuery = ({ isOpen, onClose }) => {
   if (!isOpen) return null;
 
   return (
-    <div className="fixed inset-0 bg-black/50 bg-opacity-50 flex justify-center items-center">
+    <div className="fixed inset-0 bg-black/60  flex justify-center items-center">
       <div className="bg-white rounded-2xl p-6 w-[500px] relative">
         {/* Close Button */}
         <button

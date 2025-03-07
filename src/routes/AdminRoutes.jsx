@@ -6,11 +6,12 @@ import Dashboard from '../component/Dashboard';
 import Query from '../component/query/Query';
 import Services from '../component/services/Services';
 import MyProfile from '../component/profile/MyProfile';
+import RevenueReport from '../component/reports/RevenueReport';
+import Reports from '../component/reports/Reports';
 
 const PackageBuilder = () => <h1>Package Builder</h1>
 const Clients = () => <h1>Clients</h1>
 const Invoice = () => <h1>Invoice</h1>
-const Reports = () => <h1>Reports</h1>
 
 const AdminRoutes = () => {
   return (
@@ -37,7 +38,7 @@ const AdminRoutes = () => {
               <Route path="/package-builder" element={<PackageBuilder />} />
               <Route path="/clients" element={<Clients />} />
               <Route path="/invoice" element={<Invoice />} />
-              <Route path="/reports" element={<Reports />} />
+              <Route path="/reports" element={<Reports/>} />
               <Route path="/profile" element={<MyProfile />} />
               <Route path="/logout" element={<Services />} />
             </Routes>
